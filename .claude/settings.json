@@ -1,0 +1,8 @@
+{
+  "hooks": {},
+  "instructions": "This project uses the RIPER workflow with 3 consolidated agents (research-innovate, plan-execute, review). See .claude/project-info.md for detailed context.",
+  "project": {
+    "description": "Your project description here",
+    "name": "your-project-name"
+  }
+}
