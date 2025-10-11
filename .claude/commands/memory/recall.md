@@ -44,6 +44,47 @@ Looking for memories in: `[ROOT]/.claude/memory-bank/!`git branch --show-current
 ## Search Query
 $ARGUMENTS
 
+## Adaptive Context & Learning
+
+**Pattern Matching Algorithm:**
+1. **Identify similar tasks**: Match by keywords, file patterns, domain context
+2. **Analyze success patterns**: Find tasks that succeeded on first try
+3. **Analyze failure patterns**: Find tasks that required multiple iterations
+4. **Extract optimal strategy**: What iteration counts worked best?
+
+**Learning Rules:**
+- If similar task had LOW research confidence → **Increase research iterations**
+- If similar task had PLAN failures → **Add stricter quality gates**
+- If similar task had EXECUTE issues → **Increase validation frequency**
+- If similar task succeeded with X iterations → **Recommend X as baseline**
+
+**Pattern Examples to Look For:**
+- "Auth tasks typically need COMPLEX classification (6+ files)"
+- "API refactoring succeeds with 2 research iterations, 8/10 threshold"
+- "UI components work well with SIMPLE tier (1 iteration)"
+- "Database migrations require MODERATE, 2 PLAN iterations"
+
+**Output Format:**
+```
+📊 LEARNED PATTERNS for "$ARGUMENTS":
+
+Similar tasks found: [list 2-3 most relevant matches]
+- Task: [name] | Complexity: [tier] | Research iterations: [N] | Result: [SUCCESS/FAILED]
+- Task: [name] | Complexity: [tier] | Research iterations: [N] | Result: [SUCCESS/FAILED]
+
+Success pattern identified:
+- [What approach worked consistently]
+- [Key factors that led to success]
+
+Recommended strategy:
+- Complexity tier: [SIMPLE/MODERATE/COMPLEX]
+- Research iterations: [N] (threshold: [X/10])
+- Execute validation: [STANDARD/ENHANCED]
+- Confidence: [X/10] based on [Y] historical examples
+
+⚠️ Watch out for: [Common pitfalls from similar tasks]
+```
+
 ## Available Memories
 !`ls -la $(git rev-parse --show-toplevel)/.claude/memory-bank/$(git branch --show-current)/ 2>/dev/null || echo "No memories found for current branch"`
 

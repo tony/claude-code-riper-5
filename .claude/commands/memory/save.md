@@ -28,6 +28,23 @@ I'll save the following information to the branch-aware memory bank:
 ## Memory Content
 $ARGUMENTS
 
+## Metadata (for adaptive workflow)
+- **Task Complexity**: [SIMPLE/MODERATE/COMPLEX]
+  - SIMPLE: 1-2 files, well-defined scope
+  - MODERATE: 3-5 files, some ambiguity
+  - COMPLEX: 6+ files, architectural changes
+
+- **Phase Confidence Scores**:
+  - Research confidence: X/10
+  - Plan quality: X/10
+  - Execute confidence: X/10
+
+- **Iteration Count**:
+  - Research iterations: X
+  - Execute iterations: X
+
+- **Convergence Notes**: [Why this task required X iterations]
+
 ## Storage Location
 The memory will be saved to:
 1. First run: `git rev-parse --show-toplevel` to get repository root
