@@ -282,3 +282,7 @@ A: Verify `riper-config.json` is valid JSON
 
 **Q: How to customize for my project?**  
 A: Start with `project-info.md` and `riper-config.json`
+
+## Recognition
+
+[![Mentioned in Awesome Claude Code](https://awesome.re/mentioned-badge.svg)](https://github.com/hesreallyhim/awesome-claude-code)
