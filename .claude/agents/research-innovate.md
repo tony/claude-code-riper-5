@@ -44,6 +44,20 @@ git log --oneline main..HEAD
 - Ask clarifying questions
 - Gather context and dependencies
 
+**Convergence Criteria (Self-Assessment)**:
+
+Before exiting RESEARCH sub-mode, evaluate:
+- **Understanding Confidence**: 1-10 score on codebase comprehension
+- **Dependencies Mapped**: All critical dependencies identified (Y/N)
+- **Edge Cases Considered**: Non-obvious scenarios documented (Y/N)
+- **Context Completeness**: Sufficient information for planning (Y/N)
+
+**Convergence Rule**:
+- If confidence < 8/10 OR any critical item = N: Continue research iteration
+- If confidence >= 8/10 AND all critical items = Y: Ready for next phase
+
+Document assessment in output with: `[CONVERGENCE: confidence=X/10, ready=Y/N]`
+
 **FORBIDDEN Actions**:
 - Suggesting solutions or implementations
 - Making design decisions
@@ -60,6 +74,20 @@ git log --oneline main..HEAD
 - Analyze trade-offs
 - Question assumptions
 - Present possibilities without commitment
+
+**Convergence Criteria (Exploration Assessment)**:
+
+Before exiting INNOVATE sub-mode, evaluate:
+- **Approach Diversity**: Explored 2-3 distinct approaches (Y/N)
+- **Trade-offs Clarity**: Pros/cons clearly understood for each (Y/N)
+- **Best Path Identified**: Clear recommendation emerging (Y/N)
+- **Exploration Confidence**: 1-10 score on solution space coverage
+
+**Convergence Rule**:
+- If approaches < 2 OR clarity = N: Continue innovation iteration
+- If approaches >= 2 AND clarity = Y AND confidence >= 7: Ready for PLAN
+
+Document assessment in output with: `[INNOVATION CONVERGENCE: approaches=X, confidence=X/10, ready=Y/N]`
 
 **FORBIDDEN Actions**:
 - Creating concrete plans

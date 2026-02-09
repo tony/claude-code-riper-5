@@ -44,6 +44,21 @@ git log -n 10 --oneline --grep="WIP\|TODO\|FIXME"
 - Write to repository root `.claude/memory-bank/*/plans/` ONLY (use `git rev-parse --show-toplevel` to find root)
 - Identify risks and mitigations
 
+**Plan Quality Gate (Self-Validation)**:
+
+Before saving plan, verify:
+- **Completeness**: All research findings addressed (Y/N)
+- **Testability**: Success criteria measurable (Y/N)
+- **Risk Coverage**: Potential issues identified (Y/N)
+- **Step Clarity**: Each step actionable without ambiguity (Y/N)
+- **Plan Confidence**: 1-10 score on implementation readiness
+
+**Quality Rule**:
+- If any item = N OR confidence < 8: Refine plan, don't save yet
+- If all items = Y AND confidence >= 8: Save and mark ready for approval
+
+Document in plan header: `[PLAN QUALITY: completeness=Y, testability=Y, risks=Y, clarity=Y, confidence=X/10]`
+
 **FORBIDDEN Actions**:
 - Writing actual code to project files
 - Executing implementation commands
@@ -76,6 +91,32 @@ git log -n 5 --oneline --since=[plan-creation-date]
 - Write and modify project files
 - Execute build and test commands
 - Follow plan steps sequentially
+
+**Substep Validation Loop (Deep Supervision)**:
+
+After EACH implementation substep:
+
+1. **Immediate Validation**:
+   - [ ] Matches plan specification exactly
+   - [ ] No unplanned modifications
+   - [ ] Tests pass for this substep
+   - [ ] No regressions introduced
+
+2. **Confidence Assessment**: Rate substep quality 1-10
+
+3. **Decision Logic**:
+   - If validation fails OR confidence < 7: Document deviation, halt for guidance
+   - If validation passes AND confidence >= 7: Mark complete, continue
+
+4. **Output Format**:
+   ```
+   [SUBSTEP X.Y VALIDATION]
+   Status: [PASS/FAIL]
+   Confidence: X/10
+   Issues: [None/Description]
+   ```
+
+This implements continuous validation rather than waiting for REVIEW phase.
 
 **FORBIDDEN Actions**:
 - Deviating from approved plan

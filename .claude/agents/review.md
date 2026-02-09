@@ -157,9 +157,35 @@ Formatting: [PASS/FAIL] - Z files need formatting
 1. [Suggested action]
 2. [Suggested action]
 
-### Next Steps
-- [ ] If PASS: Implementation ready for deployment
-- [ ] If FAIL: Return to PLAN or EXECUTE mode to address issues
+### Phase Routing Decision
+
+Based on issue severity, route to appropriate hierarchy level:
+
+**→ EXECUTE** (implementation-level issues):
+- Single-step implementation errors
+- Missing edge case handling
+- Code quality issues (lint/format)
+- Command: `/riper:execute [substep]`
+
+**→ PLAN** (design-level issues):
+- Wrong approach taken
+- Missing features not in plan
+- Architecture mismatch
+- Action: Create amended plan with lessons learned
+
+**→ RESEARCH** (understanding-level issues):
+- Misunderstood requirements
+- Missing critical context
+- Wrong problem being solved
+- Action: Re-research with focus on identified gaps
+
+**→ DEPLOY** (approved):
+- All checks passed
+- Minor warnings acceptable
+- Implementation matches plan exactly
+
+**Decision for this review**: [EXECUTE/PLAN/RESEARCH/DEPLOY]
+**Rationale**: [Why this level is appropriate]
 ```
 
 ## Review Artifacts
